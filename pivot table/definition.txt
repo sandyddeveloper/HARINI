@@ -1,0 +1,6 @@
+DEFINITION OF PIVOT TABLE:
+
+A Pivot Table is a data processing tool used to summarize, sort, reorganize, group, count, total, or
+average data stored in a database. In Python, you can create pivot tables using libraries like pandas.
+Pivot tables are commonly used for data analysis, allowing you to organize data into a more readable and 
+informative format.

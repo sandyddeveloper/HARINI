@@ -1,0 +1,22 @@
+Output:
+
+Category     Clothing  Electronics
+
+Date   
+
+2024-09-01        150          200
+2024-09-02        175          250
+2024-09-03        300            0
+
+
+Explanation:
+
+index='Date': Rows are grouped by the Date column.
+
+columns='Category': Creates separate columns for each unique value in the Category column.
+
+values='Sales': The Sales column's values are aggregated.
+
+aggfunc='sum': Sum of the sales for each combination of date and category.
+
+fill_value=0: Missing values are replaced with 0.
