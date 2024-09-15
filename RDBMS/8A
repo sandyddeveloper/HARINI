@@ -1,0 +1,63 @@
+8 (a) Explain different types of joins with examples.
+
+1. INNER JOIN:
+
+Description: Returns records that have matching values in both tables.
+
+Example:
+
+SELECT employees.name, departments.department_name
+FROM employees
+INNER JOIN departments
+ON employees.department_id = departments.id;
+
+
+
+2. LEFT (OUTER) JOIN:
+
+Description: Returns all records from the left table, and the matched records from the right table. If there is no match, NULL values are returned for columns from the right table.
+
+Example:
+
+SELECT employees.name, departments.department_name
+FROM employees
+LEFT JOIN departments
+ON employees.department_id = departments.id;
+
+
+
+3. RIGHT (OUTER) JOIN:
+
+Description: Returns all records from the right table, and the matched records from the left table. If there is no match, NULL values are returned for columns from the left table.
+
+Example:
+
+SELECT employees.name, departments.department_name
+FROM employees
+RIGHT JOIN departments
+ON employees.department_id = departments.id;
+
+
+
+4. FULL (OUTER) JOIN:
+
+Description: Returns all records when there is a match in either the left or right table. If there is no match, NULL values are returned.
+
+Example:
+
+SELECT employees.name, departments.department_name
+FROM employees
+FULL OUTER JOIN departments
+ON employees.department_id = departments.id;
+
+
+
+5. CROSS JOIN:
+
+Description: Returns the Cartesian product of the two tables, i.e., every possible combination of rows.
+
+Example:
+
+SELECT employees.name, departments.department_name
+FROM employees
+CROSS JOIN departments;
