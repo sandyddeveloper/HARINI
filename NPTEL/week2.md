@@ -1,4 +1,4 @@
-Here's a simplified version of the key points for your exam:
+
 
 ---
 
