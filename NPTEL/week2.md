@@ -68,5 +68,4 @@ The FBS model is a framework for designing software systems. It consists of thre
 This model helps in designing complex systems like a **mood-based music player** by ensuring all aspects (mood detection, music recommendations, user preferences) work together smoothly.
 
 ---
-
-Good luck with your exam! Let me know if you need more clarifications.
+# i have include some ex in week2Ex.md file 
