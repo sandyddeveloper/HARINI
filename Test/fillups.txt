@@ -1,0 +1,32 @@
+25  fill-in-the-blank questions about the **Software Development Life Cycle (SDLC)**:
+
+---
+
+**Fill in the Blanks:**
+
+1. SDLC stands for __________ __________ __________ __________.
+2. The first phase of SDLC is __________ __________, where project goals and user needs are identified.
+3. The __________ phase involves defining how the system will function and what it needs to accomplish.
+4. In the __________ phase, the software architecture and components are designed.
+5. The process of converting the design into actual software code is known as __________.
+6. __________ __________ involves testing individual units or components of the software to ensure they work as intended.
+7. __________ __________ focuses on testing the interaction between multiple components in a system.
+8. In SDLC, the __________ phase is when the software is delivered to the customer and deployed to the production environment.
+9. The __________ phase involves making improvements and fixing issues after the software is deployed.
+10. The two main testing types in SDLC are __________ and __________ testing.
+11. A software bug is identified and corrected during the __________ phase.
+12. SDLC helps to ensure a software system is built with high quality and __________.
+13. __________ __________ testing ensures the system works from the user's perspective.
+14. The __________ phase focuses on identifying project requirements before development begins.
+15. The __________ phase of SDLC transforms design documentation into executable code.
+16. In the design phase, the system's __________ and architecture are planned.
+17. During the __________ phase, software testers check whether the software meets the functional requirements.
+18. The SDLC phase that occurs after the deployment of the system is called __________.
+19. During the planning phase, a __________ __________ study is often conducted to evaluate the project's viability.
+20. Software projects often follow various SDLC models like Waterfall, Agile, or __________.
+21. The __________ model is a linear and sequential SDLC model where each phase must be completed before the next begins.
+22. The __________ model is an iterative SDLC model that emphasizes flexibility and customer collaboration.
+23. The SDLC approach is aimed at delivering a __________ and maintainable software product.
+24. __________ __________ is a process of improving the design or performance of a system during the maintenance phase.
+25. The final phase of SDLC involves evaluating software performance and ensuring ongoing __________.
+
