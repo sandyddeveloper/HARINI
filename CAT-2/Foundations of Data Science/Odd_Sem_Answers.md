@@ -25,6 +25,25 @@ Describing data with tables is a fundamental way to organize, summarize, and com
 
 Tables help readers to see both the micro-details (individual values) and macro trends (overall score distributions), making them a versatile tool for data description.
 
+Tables in Python can be displayed using libraries like `pandas`. Here’s an example:
+
+```python
+import pandas as pd
+
+# Create a data table using pandas
+data = {
+    "Student Name": ["Alice", "Bob", "Carol"],
+    "Math Score": [85, 90, 76],
+    "Science Score": [78, 85, 89],
+    "English Score": [92, 88, 91]
+}
+df = pd.DataFrame(data)
+
+# Display the table
+print("Data Table:")
+print(df)
+```
+
 ---
 
 ### **6b. Describe Graph for Qualitative and Quantitative Data with Diagrams**
@@ -49,6 +68,31 @@ Imagine we’re visualizing favorite fruits among students (qualitative) using a
 Each graph type is chosen based on data characteristics:
   - Bar charts and pie charts are ideal for categorical data as they show counts or proportions.
   - Histograms and scatter plots are better suited for numerical data, as they reveal distributions and relationships.
+
+Here, we'll create a **bar chart** for qualitative data and a **histogram** for quantitative data using Matplotlib.
+
+```python
+import matplotlib.pyplot as plt
+
+# Qualitative data - Bar Chart (Favorite Fruits)
+categories = ["Apple", "Banana", "Orange"]
+values = [30, 45, 25]
+plt.figure(figsize=(10, 5))
+plt.bar(categories, values, color=['red', 'yellow', 'orange'])
+plt.title("Favorite Fruit Choices")
+plt.xlabel("Fruit")
+plt.ylabel("Number of Students")
+plt.show()
+
+# Quantitative data - Histogram (Student Test Scores)
+scores = [70, 75, 85, 90, 92, 65, 78, 88, 83, 74, 69, 94]
+plt.figure(figsize=(10, 5))
+plt.hist(scores, bins=5, color='blue', edgecolor='black')
+plt.title("Histogram of Student Test Scores")
+plt.xlabel("Score Range")
+plt.ylabel("Frequency")
+plt.show()
+```
 
 ---
 
@@ -79,6 +123,35 @@ Each graph type is chosen based on data characteristics:
   
   **Example**: If the average test score is 70 with a standard deviation of 10, a score of 80 would have a z-score of \( \frac{{80 - 70}}{{10}} = 1 \), meaning it is one standard deviation above the mean.
 
+Using `scipy.stats` to generate a normal distribution and calculate z-scores:
+
+```python
+import numpy as np
+import scipy.stats as stats
+import matplotlib.pyplot as plt
+
+# Generate normal distribution data
+mu, sigma = 0, 1  # mean and standard deviation
+data = np.random.normal(mu, sigma, 1000)
+
+# Plot the normal distribution
+plt.figure(figsize=(10, 5))
+plt.hist(data, bins=30, density=True, color="lightblue", edgecolor="black")
+xmin, xmax = plt.xlim()
+x = np.linspace(xmin, xmax, 100)
+p = stats.norm.pdf(x, mu, sigma)
+plt.plot(x, p, 'k', linewidth=2)
+plt.title("Normal Distribution")
+plt.xlabel("Value")
+plt.ylabel("Probability Density")
+plt.show()
+
+# Calculate a z-score for a given data point
+value = 1.5  # example value
+z_score = (value - mu) / sigma
+print(f"Z-score of value {value} is: {z_score}")
+```
+
 ---
 
 ### **7b. Compare Visualization Charts like Line Plots, Scatter Plots, and Histograms**
@@ -104,6 +177,37 @@ Each chart type offers unique insights:
   - Line plots highlight trends.
   - Scatter plots reveal correlations.
   - Histograms provide a snapshot of distribution.
+
+```python
+import matplotlib.pyplot as plt
+
+# Data
+x = [1, 2, 3, 4, 5]
+y_line = [10, 20, 25, 30, 40]
+y_scatter = [12, 18, 27, 33, 45]
+
+# Line Plot
+plt.figure(figsize=(10, 5))
+plt.plot(x, y_line, label="Line Plot", color="blue", marker="o")
+
+# Scatter Plot
+plt.scatter(x, y_scatter, label="Scatter Plot", color="red")
+
+# Adding labels and legend
+plt.xlabel("X-Axis")
+plt.ylabel("Y-Axis")
+plt.title("Comparison of Line Plot and Scatter Plot")
+plt.legend()
+plt.show()
+
+# Histogram of the y_line data
+plt.figure(figsize=(10, 5))
+plt.hist(y_line, bins=5, color="purple", edgecolor="black")
+plt.title("Histogram of Y Data")
+plt.xlabel("Value Range")
+plt.ylabel("Frequency")
+plt.show()
+```
 
 ---
 
@@ -194,6 +298,34 @@ Each of these components plays a unique role in making plots understandable and 
 
 green')
   ```
+The following code demonstrates each of these features in a single plot.
+
+```python
+import matplotlib.pyplot as plt
+
+# Data
+x = [1, 2, 3, 4]
+y = [10, 20, 25, 30]
+
+# Plotting with markers and labels
+plt.plot(x, y, label="Data Series", color="green", marker="o")
+
+# Adding axis labels
+plt.xlabel("X-Axis Label")
+plt.ylabel("Y-Axis Label")
+
+# Adding a legend
+plt.legend()
+
+# Adding annotation
+plt.annotate("Peak Point", xy=(3, 25), xytext=(2, 27),
+             arrowprops=dict(facecolor='black', arrowstyle="->"))
+
+# Displaying the plot
+plt.title("Illustrating Labels, Legends, Annotations, and Markers")
+plt.show()
+```
+
 
 Each element makes the plot clearer and more informative for viewers.
 
