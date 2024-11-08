@@ -296,8 +296,8 @@ Each of these components plays a unique role in making plots understandable and 
   ```python
   plt.plot(x, y, marker='o', linestyle='-', color='
 
-green')
-  ```
+green
+
 The following code demonstrates each of these features in a single plot.
 
 ```python
