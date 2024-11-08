@@ -294,9 +294,9 @@ Each of these components plays a unique role in making plots understandable and 
 
 - **Marker**: Represents each data point with symbols, adding visibility.
   ```python
-  plt.plot(x, y, marker='o', linestyle='-', color='
+  plt.plot(x, y, marker='o', linestyle='-', color=green'
 
-green
+
 
 The following code demonstrates each of these features in a single plot.
 
