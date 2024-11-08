@@ -325,7 +325,80 @@ plt.annotate("Peak Point", xy=(3, 25), xytext=(2, 27),
 plt.title("Illustrating Labels, Legends, Annotations, and Markers")
 plt.show()
 ```
+---
 
+### **9b. Basemap and Geographical Data**
 
-Each element makes the plot clearer and more informative for viewers.
+**Introduction**
+
+Geographical data (or geospatial data) includes information tied to specific locations on Earth. Visualizing this data is useful in analyzing spatial patterns and relationships, such as population distribution, environmental zones, or political boundaries. This is valuable in fields like urban planning, environmental studies, and public health.
+
+**Geopandas for Geographical Data Visualization**
+
+The **Basemap** library was initially used in Python for mapping but is now largely replaced by **Geopandas** due to updates and improved functionality. Geopandas is a modern Python library built on Pandas and Shapely, enabling efficient handling and visualization of spatial data.
+
+**Key Features**
+
+1. **Drawing Basic Map Features**: Geopandas can easily draw coastlines, borders, and continents.
+2. **Plotting Locations and Areas**: Users can plot specific locations (e.g., cities) or entire regions (e.g., countries).
+3. **Map Projections**: Geopandas supports various map projections (e.g., Mercator, Robinson) to display Earth’s spherical surface accurately on a flat map.
+
+**Example Code for a Basic World Map**
+
+Here’s an example using Geopandas to draw a world map with country borders:
+
+```python
+import geopandas as gpd
+import matplotlib.pyplot as plt
+
+# Load world map data
+world = gpd.read_file(gpd.datasets.get_path('naturalearth_lowres'))
+
+# Plot world map
+plt.figure(figsize=(10, 8))
+world.plot(color='lightblue', edgecolor='black')
+plt.title("World Map using Geopandas")
+plt.xlabel("Longitude")
+plt.ylabel("Latitude")
+plt.show()
+```
+
+In this code, **`world.plot()`** displays a world map with countries shaded in blue and borders in black.
+
+**Adding Data Layers**
+
+1. **Coloring by Population**: We can shade countries by population size to show variations.
+
+   ```python
+   world.plot(column='pop_est', cmap='OrRd', legend=True,
+              legend_kwds={'label': "Population by Country",
+                           'orientation': "horizontal"})
+   plt.title("World Population by Country")
+   plt.show()
+   ```
+
+   This code colors each country based on population, with darker shades for higher values.
+
+2. **Marking Specific Locations (e.g., Cities)**:
+   You can plot specific points, such as cities, by marking them with latitude and longitude.
+
+   ```python
+   city_data = {'City': ['New York', 'LA'], 'Latitude': [40.7128, 34.0522], 'Longitude': [-74.0060, -118.2437]}
+   gdf_cities = gpd.GeoDataFrame(city_data, geometry=gpd.points_from_xy(city_data['Longitude'], city_data['Latitude']))
+
+   fig, ax = plt.subplots(figsize=(10, 8))
+   world.plot(ax=ax, color='lightblue', edgecolor='black')
+   gdf_cities.plot(ax=ax, color='red', marker='o', markersize=50)
+   plt.show()
+   ```
+
+   This plots cities as red dots on the world map.
+
+**Applications**
+
+Geographical data visualization is widely used in:
+- **Urban Planning**: Analyzing infrastructure needs.
+- **Environmental Studies**: Mapping conservation areas.
+- **Public Health**: Tracking disease spread.
+
 
