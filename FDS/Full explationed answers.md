@@ -377,5 +377,201 @@ Define autocorrelation, how to calculate it, and interpret negative correlation.
      ```
 
 ---
+Here is an elaboration for each question from the provided image, ensuring every concept is detailed and formatted for clarity:
+
+---
+
+### **14(b)(i): How to create hierarchical data from the existing data frame?**
+
+**Explanation:**
+Hierarchical data (also called multi-level or multi-indexed data) is used to organize and represent data in a structured way where there are multiple levels of rows or columns. For instance, we may want to group data by a region and then further subdivide it by cities.
+
+**Steps to Create Hierarchical Data:**
+1. **Create a DataFrame:** Start with a normal flat DataFrame where each column represents a different variable.
+2. **Set MultiIndex:** Use the `set_index()` method to create hierarchical indexing (rows with multiple levels).
+3. **Access Levels:** Access and manipulate different levels of hierarchy using pandas methods like `xs()` or `.loc[]`.
+
+**Code Example:**
+```python
+import pandas as pd
+
+# Step 1: Create a flat DataFrame
+data = {
+    'Region': ['North', 'North', 'South', 'South'],
+    'City': ['Delhi', 'Chandigarh', 'Bangalore', 'Chennai'],
+    'Population': [30000000, 1500000, 10000000, 8000000]
+}
+df = pd.DataFrame(data)
+
+# Step 2: Create hierarchical data by setting a MultiIndex
+df.set_index(['Region', 'City'], inplace=True)
+
+# Step 3: Display the hierarchical DataFrame
+print(df)
+```
+
+**Output:**
+```
+                     Population
+Region City                    
+North  Delhi          30000000
+       Chandigarh      1500000
+South  Bangalore      10000000
+       Chennai         8000000
+```
+
+**Keywords:** Hierarchical data, pandas, MultiIndex, DataFrame, `set_index()`.
+
+---
+
+### **14(b)(ii): How to use group by with 2 columns in a dataset? Give a Python code snippet.**
+
+**Explanation:**
+`groupby()` is a powerful method in pandas used for grouping data and applying aggregate functions (like sum, mean, etc.) to the groups. Grouping by multiple columns helps to summarize data based on combinations of values in those columns.
+
+**Steps to Group by Two Columns:**
+1. **Group Data:** Use the `groupby()` method on two columns.
+2. **Apply Aggregate Function:** Use methods like `.sum()`, `.mean()`, or `.count()` to calculate group-specific metrics.
+
+**Code Example:**
+```python
+import pandas as pd
+
+# Step 1: Create a flat DataFrame
+data = {
+    'Region': ['North', 'North', 'South', 'South'],
+    'City': ['Delhi', 'Chandigarh', 'Bangalore', 'Chennai'],
+    'Sales': [200, 150, 300, 250]
+}
+df = pd.DataFrame(data)
+
+# Step 2: Group by 'Region' and 'City' and compute the sum of 'Sales'
+grouped_data = df.groupby(['Region', 'City']).sum()
+
+# Step 3: Display the grouped data
+print(grouped_data)
+```
+
+**Output:**
+```
+                     Sales
+Region City              
+North  Chandigarh     150
+       Delhi          200
+South  Bangalore      300
+       Chennai        250
+```
+
+**Keywords:** pandas, groupby, aggregate functions, multiple columns.
+
+---
+
+### **15(a): Write a code snippet that projects our globe as a 2-D flat surface and conveys information about the locations of any three major Indian cities using a scatter plot.**
+
+**Explanation:**
+Projecting a 3D globe onto a 2D flat surface is essential in cartography. Using tools like `Basemap` from the `mpl_toolkits.basemap` library, we can create map visualizations.
+
+**Steps:**
+1. **Setup Basemap:** Initialize a Basemap object with the desired projection (e.g., cylindrical).
+2. **Add Features:** Draw countries, coastlines, etc., to give context.
+3. **Plot Points:** Use `scatter()` or `plot()` to mark cities on the map.
+4. **Annotate:** Add city names using `text()`.
+
+**Code Example:**
+```python
+from mpl_toolkits.basemap import Basemap
+import matplotlib.pyplot as plt
+
+# Step 1: Set up the map with cylindrical projection
+m = Basemap(projection='cyl', resolution='l',
+            llcrnrlat=5, urcrnrlat=40, 
+            llcrnrlon=60, urcrnrlon=100)
+m.drawcoastlines()
+m.drawcountries()
+
+# Step 2: Plot major Indian cities
+cities = {'Delhi': (28.61, 77.20), 'Mumbai': (19.07, 72.87), 'Chennai': (13.08, 80.27)}
+for city, (lat, lon) in cities.items():
+    plt.plot(lon, lat, 'ro', markersize=5)
+    plt.text(lon + 1, lat + 1, city, fontsize=10)
+
+# Step 3: Display the map
+plt.title("Major Indian Cities")
+plt.show()
+```
+
+**Keywords:** Basemap, cartography, Matplotlib, scatter plot.
+
+---
+
+### **15(b)(i): Write a working code that performs a simple Gaussian Process Regression (GPR) using the Scikit-Learn API.**
+
+**Explanation:**
+Gaussian Process Regression (GPR) is a Bayesian approach to regression. It predicts a distribution of potential functions that fit the data using a kernel.
+
+**Steps:**
+1. **Define Training Data:** Prepare inputs (`X`) and outputs (`y`).
+2. **Set Kernel:** Choose a kernel function like RBF (Radial Basis Function).
+3. **Train Model:** Use `GaussianProcessRegressor` to fit the data.
+4. **Make Predictions:** Predict on unseen data.
+
+**Code Example:**
+```python
+from sklearn.gaussian_process import GaussianProcessRegressor
+from sklearn.gaussian_process.kernels import RBF
+import numpy as np
+
+# Step 1: Create training data
+X = np.array([[1], [2], [3], [4], [5]])
+y = np.array([1.1, 2.0, 2.9, 4.1, 5.0])
+
+# Step 2: Define the kernel and model
+kernel = RBF()
+gpr = GaussianProcessRegressor(kernel=kernel)
+
+# Step 3: Train the model
+gpr.fit(X, y)
+
+# Step 4: Make predictions
+X_test = np.array([[6]])
+y_pred, sigma = gpr.predict(X_test, return_std=True)
+
+print("Prediction:", y_pred)
+print("Standard deviation:", sigma)
+```
+
+**Keywords:** Gaussian Process Regression, kernel, RBF, Scikit-Learn.
+
+---
+
+### **15(b)(ii): Explain visualization with Seaborn and give a code snippet for a 2D kernel density plot.**
+
+**Explanation:**
+Seaborn is a library for creating attractive and informative statistical visualizations. A kernel density plot estimates the probability density function (PDF) of continuous variables.
+
+**Steps:**
+1. **Generate Data:** Create two numerical datasets.
+2. **Create Plot:** Use `kdeplot()` to visualize the density.
+
+**Code Example:**
+```python
+import seaborn as sns
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Step 1: Generate random data
+x = np.random.normal(size=100)
+y = np.random.normal(size=100)
+
+# Step 2: Create a 2D KDE plot
+sns.kdeplot(x=x, y=y, cmap="Blues", fill=True)
+
+# Step 3: Display the plot
+plt.title("2D Kernel Density Plot")
+plt.show()
+```
+
+**Keywords:** Seaborn, KDE, visualization.
+
 
 
