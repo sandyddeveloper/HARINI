@@ -359,3 +359,83 @@ Perform specific operations with Python dictionaries.
    print(D3)
    ```
 ---
+### **14(b)(i): How to Create Hierarchical Data**
+**Keywords:** Hierarchical data, pandas, MultiIndex, DataFrame, `set_index()`.
+```python
+import pandas as pd
+data = {'Region': ['North', 'South'], 'City': ['Delhi', 'Bangalore'], 'Pop': [30, 10]}
+df = pd.DataFrame(data).set_index(['Region', 'City'])
+print(df)
+```
+
+---
+
+### **14(b)(ii): Group by Two Columns**
+**Keywords:** pandas, `groupby`, aggregate, multiple columns.
+```python
+import pandas as pd
+data = {'Region': ['North', 'North'], 'City': ['Delhi', 'Chandigarh'], 'Sales': [200, 150]}
+df = pd.DataFrame(data).groupby(['Region', 'City']).sum()
+print(df)
+```
+
+---
+
+### **15(a): Globe Projection with Scatter Plot**
+**Keywords:** Basemap, scatter plot, coordinates, cartography.
+```python
+from mpl_toolkits.basemap import Basemap
+import matplotlib.pyplot as plt
+m = Basemap(projection='cyl', llcrnrlat=5, urcrnrlat=40, llcrnrlon=60, urcrnrlon=100)
+m.drawcoastlines()
+plt.plot([77.2, 72.87, 80.27], [28.61, 19.07, 13.08], 'ro')  # Delhi, Mumbai, Chennai
+plt.show()
+```
+
+---
+
+### **15(b)(i): Gaussian Process Regression**
+**Keywords:** GPR, kernel, RBF, Scikit-Learn.
+```python
+from sklearn.gaussian_process import GaussianProcessRegressor
+from sklearn.gaussian_process.kernels import RBF
+import numpy as np
+X, y = np.array([[1], [2], [3]]), np.array([1, 2, 3])
+gpr = GaussianProcessRegressor(kernel=RBF()).fit(X, y)
+print(gpr.predict([[4]]))
+```
+
+---
+
+### **15(b)(ii): 2D Kernel Density Plot with Seaborn**
+**Keywords:** KDE, Seaborn, visualization.
+```python
+import seaborn as sns
+import numpy as np
+sns.kdeplot(x=np.random.normal(size=100), y=np.random.normal(size=100), fill=True)
+plt.show()
+```
+
+---
+
+### **16(a): Shortest Distance Using Matrix**
+**Keywords:** Graph, adjacency matrix, shortest path.
+```python
+import numpy as np
+from scipy.sparse.csgraph import shortest_path
+matrix = np.array([[0, 2], [2, 0]])  # Example Matrix
+dist = shortest_path(matrix)
+print(dist)
+```
+
+---
+
+### **16(b): Consolidate Website History**
+**Keywords:** Dictionary, aggregation, tuples, Python.
+```python
+data = [(4, 2), (5, 1), (1, 4), (7, 3)]
+result = {}
+for key, dur in data:
+    result[key] = result.get(key, 0) + dur
+print(max(result, key=result.get))
+```
