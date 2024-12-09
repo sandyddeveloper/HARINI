@@ -1,140 +1,221 @@
+Here’s a collection of **NumPy programs** covering your topics, with explanations:
 
-### **1. NumPy Operations**
+---
 
-#### **Array Creation and Indexing**
+### **1. Creating Arrays**
 ```python
 import numpy as np
 
-# Create an array
-arr = np.array([10, 20, 30, 40, 50])
+# Create 1D, 2D, and 3D arrays
+arr_1d = np.array([1, 2, 3])
+arr_2d = np.array([[1, 2], [3, 4]])
+arr_3d = np.array([[[1, 2], [3, 4]], [[5, 6], [7, 8]]])
 
-# Access elements
-print("First Element:", arr[0])
-print("Last Element:", arr[-1])
+print("1D Array:\n", arr_1d)
+print("\n2D Array:\n", arr_2d)
+print("\n3D Array:\n", arr_3d)
+```
+
+---
+
+### **2. Array Indexing and Slicing**
+```python
+# Indexing
+print("Element at index 1 in 1D array:", arr_1d[1])
+print("Element at row 1, col 1 in 2D array:", arr_2d[1, 1])
 
 # Slicing
-print("First three elements:", arr[:3])
-print("Reversed array:", arr[::-1])
-```
-
-#### **Arithmetic Operations**
-```python
-# Arithmetic with arrays
-a = np.array([1, 2, 3])
-b = np.array([4, 5, 6])
-print("Addition:", a + b)
-print("Multiplication:", a * b)
+print("\nSlicing 1D array:", arr_1d[1:])
+print("Slicing rows of 2D array:\n", arr_2d[1, :])
 ```
 
 ---
 
-### **2. Handling Missing Data in Pandas**
+### **3. Array Operations**
 ```python
-import pandas as pd
+# Arithmetic operations
+arr = np.array([1, 2, 3])
+print("\nArray Addition:", arr + 5)
+print("Array Multiplication:", arr * 2)
 
-# Create a DataFrame with missing values
-data = {'Name': ['Alice', 'Bob', None], 'Score': [90, None, 80]}
-df = pd.DataFrame(data)
-print("Original DataFrame:\n", df)
-
-# Fill missing values
-df_filled = df.fillna({'Name': 'Unknown', 'Score': df['Score'].mean()})
-print("\nFilled DataFrame:\n", df_filled)
+# Element-wise operations
+arr1 = np.array([1, 2, 3])
+arr2 = np.array([4, 5, 6])
+print("\nElement-wise Addition:", arr1 + arr2)
 ```
 
 ---
 
-### **3. Grouping and Aggregation**
+### **4. Shape Manipulation**
 ```python
-# Grouping and applying aggregation
-data = {'Category': ['A', 'B', 'A', 'B'], 'Value': [10, 20, 30, 40]}
-df = pd.DataFrame(data)
+arr = np.array([[1, 2, 3], [4, 5, 6]])
+print("\nOriginal Array:\n", arr)
 
-grouped = df.groupby('Category').sum()
-print("Grouped DataFrame:\n", grouped)
+# Reshape
+reshaped = arr.reshape(3, 2)
+print("\nReshaped Array:\n", reshaped)
+
+# Flatten
+flattened = arr.flatten()
+print("\nFlattened Array:", flattened)
 ```
 
 ---
 
-### **4. Merging and Joining**
+### **5. Broadcasting**
 ```python
-# Create two DataFrames
-df1 = pd.DataFrame({'ID': [1, 2], 'Name': ['Alice', 'Bob']})
-df2 = pd.DataFrame({'ID': [1, 2], 'Score': [85, 90]})
+arr = np.array([[1, 2, 3], [4, 5, 6]])
+vector = np.array([1, 2, 3])
 
-merged = pd.merge(df1, df2, on='ID')
-print("Merged DataFrame:\n", merged)
+# Broadcasting example
+result = arr + vector
+print("\nBroadcasted Addition:\n", result)
 ```
 
 ---
 
-### **5. Pivot Table**
+### **6. Aggregation Functions**
 ```python
-# Create data for pivot
-data = {'Date': ['2023-01-01', '2023-01-01', '2023-01-02', '2023-01-02'],
-        'Category': ['A', 'B', 'A', 'B'],
-        'Sales': [200, 150, 300, 250]}
-df = pd.DataFrame(data)
+arr = np.array([[1, 2, 3], [4, 5, 6]])
 
-pivot = df.pivot_table(values='Sales', index='Date', columns='Category', aggfunc='sum')
-print("Pivot Table:\n", pivot)
+print("\nSum of all elements:", np.sum(arr))
+print("Mean of elements:", np.mean(arr))
+print("Max element:", np.max(arr))
+print("Row-wise sum:", np.sum(arr, axis=1))
 ```
 
 ---
 
-### **6. Time-Series Analysis**
+### **7. Random Numbers**
 ```python
-# Generate time-series data
-dates = pd.date_range(start='2023-01-01', periods=5)
-df = pd.DataFrame({'Date': dates, 'Sales': [200, 250, 300, 350, 400]})
-
-# Set index
-df.set_index('Date', inplace=True)
-print("Time-Series DataFrame:\n", df)
-```
-
----
-
-### **7. Random Number Generation**
-```python
-# Random number array
-rand_array = np.random.random((3, 3))
-print("Random Array:\n", rand_array)
+# Random numbers
+rand_array = np.random.rand(3, 3)
+print("\nRandom Array:\n", rand_array)
 
 # Random integers
-rand_ints = np.random.randint(1, 100, (3, 3))
+rand_ints = np.random.randint(1, 10, size=(3, 3))
 print("\nRandom Integers:\n", rand_ints)
 ```
 
 ---
 
-### **8. Visualization of Pandas Data**
+### **8. Stacking and Splitting**
 ```python
-import matplotlib.pyplot as plt
+arr1 = np.array([1, 2, 3])
+arr2 = np.array([4, 5, 6])
 
-# Create data
-data = {'Category': ['A', 'B', 'C'], 'Values': [100, 200, 300]}
-df = pd.DataFrame(data)
+# Stacking
+stacked = np.vstack((arr1, arr2))
+print("\nVertical Stack:\n", stacked)
 
-# Bar plot
-df.plot(kind='bar', x='Category', y='Values', title='Category vs Values')
-plt.show()
+# Splitting
+split = np.split(stacked, 2)
+print("\nSplit Arrays:", split)
 ```
 
 ---
 
-### **9. DataFrame Manipulation**
+### **9. Sorting**
 ```python
-# Create and manipulate DataFrame
-data = {'Name': ['Alice', 'Bob', 'Charlie'], 'Age': [25, 30, 35], 'Score': [85, 90, 95]}
-df = pd.DataFrame(data)
+arr = np.array([[3, 1, 2], [6, 5, 4]])
 
-# Add a new column
-df['Passed'] = df['Score'] > 50
-print("Updated DataFrame:\n", df)
-
-# Drop a column
-df = df.drop(columns=['Passed'])
-print("\nAfter Dropping Column:\n", df)
+# Sort along different axes
+sorted_arr = np.sort(arr, axis=1)
+print("\nRow-wise Sorted Array:\n", sorted_arr)
 ```
 
+---
+
+### **10. Mathematical Functions**
+```python
+arr = np.array([0, np.pi / 2, np.pi])
+
+# Trigonometric functions
+print("\nSine Values:", np.sin(arr))
+print("Cosine Values:", np.cos(arr))
+
+# Exponential and log
+arr = np.array([1, 2, 3])
+print("\nExponential Values:", np.exp(arr))
+print("Logarithmic Values:", np.log(arr))
+```
+
+---
+
+### **11. Matrix Operations**
+```python
+mat1 = np.array([[1, 2], [3, 4]])
+mat2 = np.array([[5, 6], [7, 8]])
+
+# Matrix multiplication
+result = np.dot(mat1, mat2)
+print("\nMatrix Multiplication:\n", result)
+
+# Transpose
+transpose = mat1.T
+print("\nMatrix Transpose:\n", transpose)
+```
+
+---
+
+### **12. Linear Algebra**
+```python
+mat = np.array([[2, 1], [1, 3]])
+
+# Determinant
+det = np.linalg.det(mat)
+print("\nDeterminant of Matrix:", det)
+
+# Inverse
+inv = np.linalg.inv(mat)
+print("\nInverse of Matrix:\n", inv)
+```
+
+---
+
+### **13. Working with NaN and Inf**
+```python
+arr = np.array([1, 2, np.nan, np.inf])
+
+# Check for NaN
+print("\nCheck for NaN:", np.isnan(arr))
+
+# Replace NaN with 0
+arr_cleaned = np.nan_to_num(arr)
+print("\nCleaned Array:", arr_cleaned)
+```
+
+---
+
+### **14. Creating Special Arrays**
+```python
+# Zeros
+zeros = np.zeros((3, 3))
+print("\nZeros Array:\n", zeros)
+
+# Ones
+ones = np.ones((2, 4))
+print("\nOnes Array:\n", ones)
+
+# Identity matrix
+identity = np.eye(3)
+print("\nIdentity Matrix:\n", identity)
+```
+
+---
+
+### **15. Saving and Loading**
+```python
+arr = np.array([1, 2, 3, 4])
+
+# Save array to a file
+np.save('array.npy', arr)
+
+# Load array
+loaded_arr = np.load('array.npy')
+print("\nLoaded Array:", loaded_arr)
+```
+
+---
+
+Each program demonstrates core NumPy functionalities. Let me know if you'd like additional examples or explanations!
