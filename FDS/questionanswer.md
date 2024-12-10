@@ -1,5 +1,5 @@
 
-**Question:**  
+**Question: 02**  
 For the given data set, calculate the following statistical measures:  
 
 1. **Mean**  
