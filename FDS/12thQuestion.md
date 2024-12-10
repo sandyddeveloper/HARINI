@@ -42,13 +42,69 @@
   - **Discrete**: Countable values (e.g., number of children).  
   - **Continuous**: Measurable values (e.g., height, weight).
 
-#### **(ii) Boxplot for Age**
-To draw a boxplot for age, we calculate the five-number summary:
-1. **Minimum**: 23  
-2. **Q1 (25th Percentile)**: 29  
-3. **Median (50th Percentile)**: 49  
-4. **Q3 (75th Percentile)**: 57  
-5. **Maximum**: 60  
+
+
+The **Age** data you provided is:
+
+```
+23, 27, 39, 49, 50, 52, 54, 56, 58, 60
+```
+
+### Step-by-step Calculation of the Five-Number Summary:
+
+1. **Ordered Data**:  
+   The data is already in ascending order:
+
+   ```
+   23, 27, 39, 49, 50, 52, 54, 56, 58, 60
+   ```
+
+2. **Minimum (Min)**:  
+   The smallest value is **23**.
+
+3. **Maximum (Max)**:  
+   The largest value is **60**.
+
+4. **Median (Q2)**:  
+   The median is the average of the 5th and 6th values because there are 10 data points (an even number). The 5th and 6th values are **50** and **52**, so:
+
+   \[
+   \text{Median} = \frac{50 + 52}{2} = 51
+   \]
+
+5. **Q1 (First Quartile)**:  
+   To find **Q1**, we look at the first half of the data (from 23 to 50):
+   
+   ```
+   23, 27, 39, 49, 50
+   ```
+   
+   The median of this set is the 3rd value, which is **39**. So, **Q1 = 39**.
+
+6. **Q3 (Third Quartile)**:  
+   To find **Q3**, we look at the second half of the data (from 52 to 60):
+   
+   ```
+   52, 54, 56, 58, 60
+   ```
+   
+   The median of this set is the 3rd value, which is **56**. So, **Q3 = 56**.
+
+### Five-Number Summary:
+- **Minimum (Min)** = 23
+- **Q1 (First Quartile)** = 39
+- **Median (Q2)** = 51
+- **Q3 (Third Quartile)** = 56
+- **Maximum (Max)** = 60
+
+### Boxplot Interpretation:
+The boxplot will have the following key points:
+- **Minimum** at 23
+- **Q1** at 39
+- **Median** at 51
+- **Q3** at 56
+- **Maximum** at 60
+
 
 ---
 
