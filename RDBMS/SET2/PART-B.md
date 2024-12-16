@@ -212,9 +212,8 @@ Suppose we have:
 #### **Right Outer Join**: Includes all rows from the right relation and matching rows from the left relation. Non-matching rows in the left relation will have `NULL` values.
 
 **Relational Algebra:**
-\[
-\text{Employee} \ \text{RIGHT OUTER JOIN} \ \text{Loan}
-\]
+[
+{Employee}{RIGHT OUTER JOIN}{Loan}]
 
 **Output:**
 
@@ -229,7 +228,7 @@ Suppose we have:
 
 **Relational Algebra:**
 \[
-\text{Employee} \ \text{FULL OUTER JOIN} \ \text{Loan}
+{Employee}{FULL OUTER JOIN}{Loan}
 \]
 
 **Output:**
