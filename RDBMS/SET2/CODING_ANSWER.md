@@ -118,5 +118,114 @@
 
 ---
 
+# 16 a)
+Here are the SQL solutions for **part a** and a general ER model description for **part b** in the given relational database management system (RDBMS) scenario.
+
+---
+
+### Part a: Query Operations using SQL
+
+#### Tables:
+- **Degree**: `Degree(degcode, name, subject)`
+- **Candidate**: `Candidate(seatno, degcode, semester, month, year, result)`
+- **Marks**: `Marks(seatno, degcode, semester, month, year, papcode, marks)`
+
+---
+
+1. **(i) Write a SELECT statement to display all the degree codes which are there in the `Candidate` table but not present in the `Degree` table in the order of `degcode`.**
+
+```sql
+SELECT DISTINCT C.degcode
+FROM Candidate C
+WHERE C.degcode NOT IN (SELECT D.degcode FROM Degree D)
+ORDER BY C.degcode;
+```
+
+---
+
+2. **(ii) Write a SELECT statement to display the names of all candidates who have got less than 40 marks in exactly 2 subjects.**
+
+```sql
+SELECT C.name
+FROM Candidate C
+JOIN Marks M ON C.seatno = M.seatno
+WHERE M.marks < 40
+GROUP BY C.name
+HAVING COUNT(M.papcode) = 2;
+```
+
+---
+
+3. **(iii) Write a SELECT statement to display the name, subject, and number of candidates for all degrees in which there are less than 5 candidates.**
+
+```sql
+SELECT D.name, D.subject, COUNT(C.seatno) AS num_candidates
+FROM Degree D
+LEFT JOIN Candidate C ON D.degcode = C.degcode
+GROUP BY D.name, D.subject
+HAVING COUNT(C.seatno) < 5;
+```
+
+---
+
+4. **(iv) Write a SELECT statement to display the names of all candidates who have got the highest total marks in MSc.,(Maths).**
+
+```sql
+SELECT C.name
+FROM Candidate C
+JOIN Marks M ON C.seatno = M.seatno
+WHERE C.degcode = (SELECT degcode FROM Degree WHERE name = 'MSc' AND subject = 'Maths')
+GROUP BY C.name
+ORDER BY SUM(M.marks) DESC
+LIMIT 1;
+```
+
+---
+
+# 16 b)
+
+### Part b: ER Model for Car Rental Company
+
+**Entities and Attributes:**
+
+1. **Vehicle** (General Entity)
+   - `vehicle_id` (Primary Key)
+   - `license_number`
+   - `manufacturer`
+   - `model`
+   - `date_of_purchase`
+   - `color`
+
+2. **Specialized Entities** (Subtypes):
+   - **Trucks**: `cargo_capacity`
+   - **Sports Cars**: `horsepower`, `renter_age_requirement`
+   - **Vans**: `number_of_passengers`
+   - **Off-road Vehicles**: `ground_clearance`, `drivetrain` (four-wheel/two-wheel)
+
+3. **Relationships**:
+   - Vehicles are rented by **Customers**.
+     - **Customer** Entity: `customer_id`, `name`, `contact_info`, `license_number`
+     - Relationship: A vehicle can be rented by many customers (1:M).
+   - Maintenance can be logged for vehicles.
+     - **Maintenance** Entity: `maintenance_id`, `vehicle_id`, `date`, `details`, `cost`
+
+**ER Model Representation:**
+```
+[Vehicle] 1---M [Customer]  (Rented By)
+    |
+    |--[Trucks]
+    |--[Sports Cars]
+    |--[Vans]
+    |--[Off-road Vehicles]
+    |
+    |--[Maintenance]  (Logs maintenance details)
+```
+
+**Key Notes**:
+- Use **inheritance** or specialization to differentiate between the vehicle types.
+- Create relationships for rentals (`Rented By`) and maintenance logs (`Maintenance`).
+
+---
+
 
 
