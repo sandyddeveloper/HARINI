@@ -238,3 +238,91 @@ Suppose we have:
 | 101   | Alice   | 12345  |
 | 102   | Bob     | 67890  |
 | 103   | Charlie | NULL   |
+
+# 16, a) 
+
+Here is the **DDL (Data Definition Language)** and **DML (Data Manipulation Language)** script for a `Student` database containing `student-details` and `course-details` tables:
+
+---
+
+### **1. DDL for Creating Tables**
+
+#### Create the `Student` Table
+```sql
+CREATE TABLE Student (
+    id INT PRIMARY KEY,              -- Unique student ID
+    name VARCHAR(100) NOT NULL,      -- Student name
+    dob DATE NOT NULL,               -- Date of birth
+    branch VARCHAR(50) NOT NULL,     -- Branch of study
+    date_of_join DATE NOT NULL       -- Date of joining
+);
+```
+
+#### Create the `Course` Table
+```sql
+CREATE TABLE Course (
+    cid INT PRIMARY KEY,             -- Unique course ID
+    cname VARCHAR(100) NOT NULL,     -- Course name
+    sid INT NOT NULL,                -- Student ID (foreign key)
+    faculty_name VARCHAR(100) NOT NULL, -- Faculty name
+    fid INT NOT NULL,                -- Faculty ID
+    marks INT,                       -- Marks obtained in the course
+    FOREIGN KEY (sid) REFERENCES Student(id) -- Relating course to student
+);
+```
+
+---
+
+### **2. DML for Adding Data**
+
+#### Insert Data into `Student` Table
+```sql
+INSERT INTO Student (id, name, dob, branch, date_of_join) 
+VALUES 
+(1, 'Alice', '2000-01-15', 'Computer Science', '2018-08-01'),
+(2, 'Bob', '2001-03-10', 'Mechanical Engineering', '2019-08-01'),
+(3, 'Charlie', '1999-12-22', 'Electrical Engineering', '2017-08-01');
+```
+
+#### Insert Data into `Course` Table
+```sql
+INSERT INTO Course (cid, cname, sid, faculty_name, fid, marks) 
+VALUES 
+(101, 'Data Structures', 1, 'Dr. Smith', 201, 85),
+(102, 'Thermodynamics', 2, 'Dr. Johnson', 202, 78),
+(103, 'Circuit Analysis', 3, 'Dr. Williams', 203, 92),
+(104, 'Algorithms', 1, 'Dr. Brown', 204, 88),
+(105, 'Machine Design', 2, 'Dr. Lee', 205, 74);
+```
+
+---
+
+### **3. Query Examples**
+
+#### a) Retrieve all students with their details:
+```sql
+SELECT * FROM Student;
+```
+
+#### b) Retrieve the courses taken by a specific student (e.g., Alice):
+```sql
+SELECT c.cname, c.faculty_name, c.marks
+FROM Course c
+JOIN Student s ON c.sid = s.id
+WHERE s.name = 'Alice';
+```
+
+#### c) Find the average marks for each course:
+```sql
+SELECT cname, AVG(marks) AS average_marks
+FROM Course
+GROUP BY cname;
+```
+
+#### d) Retrieve students who scored more than 80 in any course:
+```sql
+SELECT DISTINCT s.name, c.cname, c.marks
+FROM Student s
+JOIN Course c ON s.id = c.sid
+WHERE c.marks > 80;
+```
