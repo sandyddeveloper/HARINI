@@ -1,23 +1,5 @@
 
 
-## **Program Explanation**
-
-1. **Class `NameSorter`**:  
-   - Handles accepting names, sorting them, and displaying the result.  
-   - Contains methods for:  
-     - Accepting input.  
-     - Sorting names.  
-     - Displaying names.
-
-2. **Main Method**:  
-   - Creates an object of `NameSorter`.  
-   - Calls the necessary methods to accept, sort, and display names.
-
-3. **Sorting**:  
-   - The program uses the **`Arrays.sort()`** method to sort the names alphabetically.
-
----
-
 ## **Java Program**
 
 ```java
