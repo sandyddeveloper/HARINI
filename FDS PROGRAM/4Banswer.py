@@ -33,10 +33,7 @@ if __name__ == "__main__":
 
 
 ### Output:
-For the list `[1, 2, 3, 4, 4, 5, 6, 7]`, the program will output:
-```
 Mean: 4.0
 Median: 4.0
 Mode: 4
-``` 
 
