@@ -27,7 +27,16 @@ def calculate_averages(numbers):
     print(f"Median: {avg_median}")
     print(f"Mode: {avg_mode}")
 
-# Example usage
 if __name__ == "__main__":
     numbers = [1, 2, 3, 4, 4, 5, 6, 7]
     calculate_averages(numbers)
+
+
+### Output:
+For the list `[1, 2, 3, 4, 4, 5, 6, 7]`, the program will output:
+```
+Mean: 4.0
+Median: 4.0
+Mode: 4
+``` 
+
