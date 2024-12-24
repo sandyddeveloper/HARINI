@@ -151,4 +151,60 @@ Latency = Execution Time / Number of Instructions
 
 ---
 
+# Virtual Memory in Computer Organization
+
+## What is Virtual Memory?
+Virtual memory is the separation of logical memory from physical memory. This partition allows programmers to utilize large virtual memory even when only limited physical memory is available. It creates the illusion of having a high memory capacity, simplifying programming as programmers no longer need to manage the limited physical memory directly.
+
+### Key Features:
+- Virtual memory provides the illusion of large memory to the programmer.
+- Data is transferred between physical memory and slower storage (like disk) using a Memory Management Unit (MMU).
+- The storage area used for virtual memory is often referred to as a **swap disk** or **swap file**.
+- Accessing data from physical memory is faster than accessing data from the swap disk.
+
+---
+
+## Methods of Implementing Virtual Memory
+Virtual memory can be implemented using two primary methods:
+
+### 1. Paging
+Paging is a memory management technique where small, fixed-length pages are allocated instead of large, variable-length contiguous blocks. In a paged system:
+- Each process is divided into fixed-size **pages** (e.g., 4k bytes).
+- Memory space is divided into blocks of equal size called **frames**.
+
+#### Advantages of Paging:
+1. Eliminates external fragmentation.
+2. Simplifies swapping as pages and frames are of equal size.
+3. Straightforward approach for memory management.
+
+#### Disadvantages of Paging:
+1. May cause **internal fragmentation**.
+2. Page tables consume additional memory.
+3. **Multi-level paging** may result in memory reference overhead.
+
+### 2. Segmentation
+Segmentation is the partitioning of memory into logical units called **segments**. Each segment represents a logically related unit, allowing for independent growth and sharing. Programs are treated as collections of segments rather than contiguous blocks of memory.
+
+#### Key Features of Segmentation:
+- Segments vary in size, unlike pages.
+- A **segment table** is used to manage memory, containing the start address and size of each segment.
+- Some systems allow segments to start at any address, while others impose restrictions. For instance, in the Intel X86 architecture, segment addresses must have `6000` as their four low-order bits.
+
+#### Advantages of Segmentation:
+- Provides logical grouping of related data and code.
+- Allows segments to grow independently.
+- Facilitates sharing of segments among processes.
+
+---
+
+## Comparison of Paging and Segmentation
+| Feature                | Paging                          | Segmentation                      |
+|------------------------|----------------------------------|------------------------------------|
+| **Size**               | Fixed-size pages                | Variable-size segments            |
+| **Addressing**         | Pages mapped using page tables  | Segments mapped using segment tables |
+| **Fragmentation**      | Internal fragmentation          | External fragmentation            |
+| **Logical Division**   | Not related to program logic    | Related to program logic          |
+
+---
+
 
