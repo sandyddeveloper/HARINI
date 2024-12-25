@@ -100,3 +100,94 @@ The Instruction Set Architecture (ISA) is the abstract interface between the har
 ---
 
 
+### **Von Neumann Architecture**  
+The Von Neumann architecture is a foundational model for computer design, proposed by mathematician and physicist John von Neumann in the 1940s. It describes a system where the computer's hardware and software interact seamlessly through a shared memory structure, which stores both instructions and data.
+
+---
+
+### **Key Features of Von Neumann Architecture**  
+
+1. **Stored Program Concept**  
+   - Both program instructions and data are stored in the same memory.  
+   - Instructions are executed sequentially unless altered by control instructions (e.g., jump or branch).
+
+2. **Single Memory for Code and Data**  
+   - The system uses a single memory space to store both instructions and data.  
+   - This eliminates the need for separate memory systems for instructions and data.
+
+3. **Central Processing Unit (CPU)**  
+   - The CPU executes instructions from memory and includes the following components:  
+     - **Control Unit (CU):** Decodes and executes instructions.  
+     - **Arithmetic Logic Unit (ALU):** Performs arithmetic and logical operations.  
+     - **Registers:** Temporarily store data and instructions during execution.
+
+4. **Sequential Instruction Execution**  
+   - Instructions are fetched one at a time, decoded, and executed in sequence.  
+   - The process follows the **fetch-decode-execute** cycle.
+
+5. **Shared Data Path**  
+   - A single bus is used for data transfer between the CPU, memory, and I/O devices, which can lead to the "Von Neumann bottleneck."
+
+---
+
+### **Components of Von Neumann Architecture**  
+
+1. **Memory Unit**  
+   - Stores both instructions and data.  
+   - Divided into smaller units (e.g., words or bytes) for efficient access.
+
+2. **Central Processing Unit (CPU)**  
+   - **Control Unit (CU):** Manages the execution of instructions by coordinating data flow and resources.  
+   - **Arithmetic Logic Unit (ALU):** Handles mathematical and logical operations.  
+   - **Registers:** Provide fast temporary storage for processing.
+
+3. **Input/Output (I/O) Devices**  
+   - Facilitate interaction between the computer and external environments.  
+
+4. **System Bus**  
+   - A communication pathway consisting of three main types:  
+     - **Data Bus:** Transfers data between components.  
+     - **Address Bus:** Transfers memory or device addresses.  
+     - **Control Bus:** Transfers control signals (e.g., read/write commands).
+
+---
+
+### **Fetch-Decode-Execute Cycle**  
+
+1. **Fetch:**  
+   - The CPU fetches an instruction from memory using the address stored in the Program Counter (PC).  
+2. **Decode:**  
+   - The Control Unit decodes the fetched instruction to determine the required operation.  
+3. **Execute:**  
+   - The decoded instruction is executed by the ALU or other CPU components.  
+
+---
+
+### **Advantages of Von Neumann Architecture**  
+1. **Simplicity:**  
+   - A single memory for data and instructions simplifies design and programming.  
+2. **Flexibility:**  
+   - Programs can be modified by altering stored instructions.  
+3. **Cost-Effectiveness:**  
+   - Reduced hardware requirements lead to lower costs.  
+
+---
+
+### **Disadvantages of Von Neumann Architecture**  
+1. **Von Neumann Bottleneck:**  
+   - The shared bus for instructions and data limits performance due to memory access delays.  
+2. **Sequential Processing:**  
+   - Cannot efficiently handle parallel execution or modern high-speed processing demands.  
+3. **Memory Bandwidth Limitation:**  
+   - System performance is constrained by the speed of memory access.  
+
+---
+
+### **Applications**  
+- Used in general-purpose computers and embedded systems.  
+- Forms the basis for most traditional CPUs in personal computers and early mainframes.  
+
+---
+
+### **Modern Relevance**  
+Despite its limitations, the Von Neumann architecture remains fundamental in understanding computer systems. Variations like the **Harvard architecture** (which separates instruction and data memory) are used in specialized systems, but Von Neumann's principles are still prevalent in modern computing designs.
