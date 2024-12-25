@@ -100,7 +100,7 @@ The Instruction Set Architecture (ISA) is the abstract interface between the har
 ---
 
 
-### **Von Neumann Architecture**  
+### **2 Von Neumann Architecture**  
 The Von Neumann architecture is a foundational model for computer design, proposed by mathematician and physicist John von Neumann in the 1940s. It describes a system where the computer's hardware and software interact seamlessly through a shared memory structure, which stores both instructions and data.
 
 ---
