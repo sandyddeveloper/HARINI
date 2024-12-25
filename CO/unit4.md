@@ -191,3 +191,112 @@ The Von Neumann architecture is a foundational model for computer design, propos
 
 ### **Modern Relevance**  
 Despite its limitations, the Von Neumann architecture remains fundamental in understanding computer systems. Variations like the **Harvard architecture** (which separates instruction and data memory) are used in specialized systems, but Von Neumann's principles are still prevalent in modern computing designs.
+
+---
+
+### ** 3.Functional Units of a Computer in Computer Organization**
+
+A computer system is organized into various functional units, each responsible for specific tasks. These units work together to process data, execute instructions, and perform computations. The main functional units are:
+
+---
+
+### **1. Input Unit**
+- **Purpose**: Accepts data and instructions from external devices (e.g., keyboard, mouse) and converts them into a format the computer can process.
+- **Functions**:
+  - Accept data from the user or an external environment.
+  - Convert the input into binary signals (computer-readable format).
+  - Transfer the converted data to the memory or processing unit.
+- **Examples**: Keyboard, Mouse, Scanner, Microphone.
+
+---
+
+### **2. Central Processing Unit (CPU)**  
+The CPU is the brain of the computer and controls all its operations. It is further divided into three main sub-units:
+
+#### **a. Control Unit (CU)**  
+- **Purpose**: Directs the flow of data and instructions in the system.
+- **Functions**:
+  - Fetches instructions from memory.
+  - Decodes instructions to determine actions.
+  - Directs the execution of instructions by coordinating other units.
+
+#### **b. Arithmetic and Logic Unit (ALU)**  
+- **Purpose**: Performs arithmetic and logical operations.
+- **Functions**:
+  - Arithmetic operations: Addition, subtraction, multiplication, and division.
+  - Logical operations: Comparisons (e.g., greater than, less than, equal to).
+  - Bitwise operations: AND, OR, NOT, XOR.
+
+#### **c. Registers**  
+- **Purpose**: Provide high-speed storage for temporary data and instructions during processing.
+- **Functions**:
+  - Store data to be processed.
+  - Hold intermediate results of calculations.
+  - Contain memory addresses for instructions and data.
+
+---
+
+### **3. Memory Unit**
+- **Purpose**: Stores data and instructions before and after processing.
+- **Types**:
+  - **Primary Memory (Main Memory)**:
+    - Examples: RAM (volatile), ROM (non-volatile).
+    - Functions: Stores instructions and data currently in use.
+  - **Secondary Memory**:
+    - Examples: Hard Drive, SSD.
+    - Functions: Long-term storage of programs and data.
+- **Functions**:
+  - Store instructions for the CPU to execute.
+  - Hold the results of computations temporarily or permanently.
+
+---
+
+### **4. Output Unit**
+- **Purpose**: Converts processed data from the computer into a human-readable format and sends it to output devices.
+- **Functions**:
+  - Accept processed data from the CPU.
+  - Convert the binary output into a user-friendly format (e.g., text, graphics).
+  - Display or deliver the data to the external world.
+- **Examples**: Monitor, Printer, Speaker.
+
+---
+
+### **5. Storage Unit**
+- **Purpose**: Retains data and instructions for immediate or future use.
+- **Types**:
+  - **Primary Storage**: Faster, temporary (e.g., cache memory, registers, RAM).
+  - **Secondary Storage**: Slower, permanent (e.g., hard drives, SSDs).
+  - **Tertiary Storage**: Removable and archival (e.g., CDs, DVDs, magnetic tapes).
+
+---
+
+### **6. Communication Unit**
+- **Purpose**: Enables the transfer of data between the computer and external devices or networks.
+- **Functions**:
+  - Manage data flow between the computer system and peripherals.
+  - Handle networking and internet communication.
+- **Examples**: Network Interface Card (NIC), Modem.
+
+---
+
+### **7. Interconnection System (Buses)**
+- **Purpose**: Facilitates data transfer among the various functional units.
+- **Types of Buses**:
+  - **Data Bus**: Carries data between memory, CPU, and peripherals.
+  - **Address Bus**: Carries memory or device addresses.
+  - **Control Bus**: Carries control signals (e.g., read/write instructions).
+
+---
+
+### **Summary of Functions**:
+| **Functional Unit** | **Primary Role** | **Examples**           |
+|----------------------|------------------|------------------------|
+| Input Unit           | Data input       | Keyboard, Mouse        |
+| CPU                  | Data processing  | ALU, CU, Registers     |
+| Memory Unit          | Data storage     | RAM, Hard Drive        |
+| Output Unit          | Data output      | Monitor, Printer       |
+| Storage Unit         | Persistent data  | SSD, Cloud Storage     |
+| Communication Unit   | Data transfer    | NIC, Modem             |
+| Interconnection      | Data flow        | System Buses           |
+
+
