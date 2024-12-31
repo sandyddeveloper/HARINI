@@ -1,8 +1,9 @@
+ String Handling Function
+```java
 public class StringHandler {
 
     // Method to demonstrate string handling
     public static void handleString(String input) {
-        harini
         // Check for null or empty string
         if (input == null || input.isEmpty()) {
             System.out.println("Input string is null or empty.");
@@ -55,17 +56,24 @@ public class StringHandler {
         handleString(input);
     }
 }
+```
 
+### Output (for `input = "Java is amazing!"`):
+```
+Uppercase: JAVA IS AMAZING!
+Lowercase: java is amazing!
+Length: 16
+Reversed: !gnizama si avaJ
+Is Palindrome: false
+Replaced 'a' with '@': J@v@ is @m@zing!
+Words:
+Java
+is
+amazing!
+Substring (first 5 characters): Java 
+Contains 'Java': true
+```
 
-harini
-WOW WOW
-inirah
-h@rini
-
-harini is a developer
-harini 
-is 
-a 
 developer
 
 
