@@ -81,6 +81,57 @@ if __name__ == '__main__':
 
 
 
+# NOTES:
+
+# LOGICAL FLOW
+
+# 1 - Initialize the Game 
+#  => set all player position to 0 .
+#  => Define snakes and ladder as dict
+
+# 2 - Game Loop Starts
+#  => While no player has reached position 100:
+#         => each player takes turns.
+#         => Roll the dices.
+#         => calculate the new positions.
+#         => if landed ona snale or ladder, update the position
+#         => print the player ' position
+#         => check if the player has wom
+
+# 3 - turn HAndling:
+#  => players alternate turns.
+#  => A 6 may give an extra turn
+
+# 4 - Winning Conditions
+#  => Game ends immediately when any player reaches 100 
+#  => Declare as winner 
+
+
+# --------------------------------------------------------------
+# # roll_dice()
+# # plyer_move(position, dice_value)
+# # chech_snake _or_ladder()
+# # player_turn()
+# # chech_winner()
+
+# algorithm 
+
+# import random
+# Uniform Random Selection
+# syntax = random.randint(1,6)
+
+
+# simple Arithmetic
+
+# snake  & handleing
+
+# snake = {16: 6, 47:25....}
+# ladder = {3:11, 77:}
+
+# win condition:
+# if position == 100:
+#     declare winner 
+
 
 
 
