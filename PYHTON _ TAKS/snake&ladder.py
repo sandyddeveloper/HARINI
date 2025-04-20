@@ -26,33 +26,33 @@ ladders = {
     53: 90
 }
 
-# Roll the dice 
+# Roll the dice
 def roll_dice():
-    return random.randint(1,6)
+    return random.randint(1, 6)
 
-#Check_snake_or_laddder
-def check_snake_or_laddder(pos):
+# Check for snake or ladder
+def check_snake_or_ladder(pos):
     if pos in snakes:
-        print("Snake at {pos} . Now your moving down to {snake[pos]}")
+        print(f"You got bitten by a snake at {pos}. Moving down to {snakes[pos]}")
         return snakes[pos]
     elif pos in ladders:
-        print("Your in ladder at {pos}.. so your going to move up to {ladders[pos]}")
+        print(f"You found a ladder at {pos}. Climbing up to {ladders[pos]}")
         return ladders[pos]
     return pos
-    
-# players turn
-def take_turn(player, position):
-    input(f"{player}'s turn. Press enter to roll the dice")
-    dice = roll_dice()
-    print(f"{player} rooled a {dice}")
 
-    if position + dice  > 100:
-        print(" You need exact number to 100. Turn skiiped. \n")
+# Player's turn
+def take_turn(player, position):
+    input(f"{player}'s turn. Press Enter to roll the dice...")
+    dice = roll_dice()
+    print(f"{player} rolled a {dice}")
+
+    if position + dice > 100:
+        print("You need the exact number to reach 100. Turn skipped.\n")
         return position
-    
+
     position += dice
-    position = check_snake_or_laddder(position)
-    print(f'{player} is now at position {position} \n')
+    position = check_snake_or_ladder(position)
+    print(f"{player} is now at position {position}\n")
     return position
 
 # Main game loop
@@ -64,19 +64,18 @@ def play_game():
     pos2 = 0
 
     while True:
-        pos1 = take_turn(p1, pos1) 
+        pos1 = take_turn(p1, pos1)
         if pos1 == 100:
-            print(f"{p1} wins the game")
-            break
-        pos2 = take_turn(p2, pos2) 
-        if pos2 == 100:
-            print(f"{p2} win the game")   
+            print(f"{p1} wins the game! ")
             break
 
+        pos2 = take_turn(p2, pos2)
+        if pos2 == 100:
+            print(f"{p2} wins the game! ")
+            break
 
 if __name__ == '__main__':
     play_game()
-    
 
 
 
