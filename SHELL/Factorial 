@@ -1,0 +1,15 @@
+#!/bin/bash
+
+
+number=5
+factorial=1
+
+echo "Calculating factorial of $number..."
+
+
+for (( i=1; i<=number; i++ ))
+do
+  factorial=$((factorial * i))
+done
+
+echo "Factorial of $number is: $factorial"
