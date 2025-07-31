@@ -31,3 +31,20 @@
 
 15. **Create a program with only local variables that are declared, initialized, and printed inside the `main` method. No arithmetic or logical operations used.**
 
+16.  MAIN QUESTION...
+
+**Question**:
+Write a Java program named `StudentInfo` that does the following:
+
+ Declare a global (class-level) variable `schoolName` of type `String` and initialize it with any name.
+
+   * Declare and initialize **at least one variable of each primitive data type** (`int`, `float`, `double`, `char`, `boolean`, `long`, `short`, `byte`).
+   * Declare and initialize at least one **non-primitive** data type (e.g., `String`, `Integer[]`).
+   * Use **declaration and initialization statements separately** for at least two variables.
+   * Print all variables using both `System.out.print()` and `System.out.println()` (show difference in output).
+   * Use **only local variables** (besides the global `schoolName`) and **do not use any operators**.
+   * Reassign values to two local variables and print the values again after reassignment.
+
+
+
+
