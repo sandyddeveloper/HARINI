@@ -31,9 +31,7 @@
 
 15. **Create a program with only local variables that are declared, initialized, and printed inside the `main` method. No arithmetic or logical operations used.**
 
-16.  MAIN QUESTION...
-
-**Question**:
+16. **Question**:
 Write a Java program named `StudentInfo` that does the following:
 
  Declare a global (class-level) variable `schoolName` of type `String` and initialize it with any name.
