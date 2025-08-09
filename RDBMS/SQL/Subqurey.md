@@ -31,4 +31,4 @@
 15. **List employees who earn less than all employees in the 'IT' department.**
 
 
-Let me know if you'd like sample tables to test them on or solutions for any of these!
+
